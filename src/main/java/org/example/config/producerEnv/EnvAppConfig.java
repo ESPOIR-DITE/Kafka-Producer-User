@@ -3,7 +3,7 @@ package org.example.config.producerEnv;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class EnvAppConfig implements EnvApp {
-    private Dotenv dotenv = Dotenv.load();
+    private final Dotenv dotenv = Dotenv.load();
 
     @Override
     public String topic() {

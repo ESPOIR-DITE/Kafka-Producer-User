@@ -3,8 +3,8 @@ package org.example.producer;
 
 import net.datafaker.Faker;
 import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.example.config.AppConfig;
 import org.example.config.producerEnv.EnvApp;
 import org.example.model.User;
 import org.example.model.UserSerializer;
@@ -15,19 +15,19 @@ import java.util.Properties;
 
 import static java.lang.Thread.sleep;
 
-public class Producer {
+public class ProducerClient {
 
      static UserSerializer userSerializer = new UserSerializer();
     public static void producer(EnvApp config) throws InterruptedException {
         Properties properties = AppUtils.getProperties(config);
-        org.apache.kafka.clients.producer.Producer<String, byte[]> producer = new KafkaProducer<>(properties);
+        Producer<String, byte[]> producerClient = new KafkaProducer<>(properties);
 
 
         while (true) {
             byte[] data = getUser();
             ProducerRecord<String, byte[]> record = new ProducerRecord<>(config.topic(), null, data);
-            producer.send(record);
-            producer.flush();
+            producerClient.send(record);
+            producerClient.flush();
             sleep(5000);
         }
     }
