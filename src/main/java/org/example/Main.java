@@ -1,6 +1,5 @@
 package org.example;
 
-import io.github.cdimascio.dotenv.Dotenv;
 import org.example.config.producerEnv.EnvAppConfig;
 import org.example.producer.Producer;
 

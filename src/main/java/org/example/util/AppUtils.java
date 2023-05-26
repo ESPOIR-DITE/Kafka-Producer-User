@@ -1,7 +1,6 @@
 package org.example.util;
 
-import kafka.Kafka;
-import kafka.tools.ConsoleProducer;
+
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.example.config.AppProperties;
 
