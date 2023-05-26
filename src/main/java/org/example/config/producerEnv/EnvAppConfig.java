@@ -1,7 +1,6 @@
 package org.example.config.producerEnv;
 
 import io.github.cdimascio.dotenv.Dotenv;
-import org.example.config.AppProperties;
 
 public class EnvAppConfig implements EnvApp {
     private Dotenv dotenv = Dotenv.load();
