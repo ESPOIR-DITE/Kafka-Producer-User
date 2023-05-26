@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id "com.palantir.docker" version "0.35.0"
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation('io.github.cdimascio:dotenv-java:3.0.0')
+    // https://mvnrepository.com/artifact/org.apache.kafka/kafka
+    implementation("org.apache.kafka:kafka_2.13:3.4.0")
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    implementation 'org.slf4j:slf4j-api:2.0.7'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    runtimeOnly 'org.slf4j:slf4j-simple:2.0.7'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
+    testImplementation 'org.slf4j:slf4j-log4j12:2.0.7'
+
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
+
+    // https://mvnrepository.com/artifact/net.datafaker/datafaker
+    implementation group: 'net.datafaker', name: 'datafaker', version: '1.9.0'
+
+}
+version '0.1.0'
+
+//docker {
+//    name "kafka-producer-user:${project.version}"
+//    files 'springbootify.jar'
+//}
+
+test {
+    useJUnitPlatform()
+}
