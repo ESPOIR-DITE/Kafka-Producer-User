@@ -6,4 +6,6 @@ public interface AppProperties extends AppConfig{
     String bootstrapServerPort();
     String serdeKey();
     String serdeValue();
+    String registryHost();
+    String registryPort();
 }

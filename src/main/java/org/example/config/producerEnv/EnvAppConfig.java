@@ -34,4 +34,14 @@ public class EnvAppConfig implements EnvApp {
     public String serdeValue() {
         return dotenv.get("SERDE_VALUE");
     }
+
+    @Override
+    public String registryHost() {
+        return dotenv.get("SCHEMA_REGISTRY_HOST");
+    }
+
+    @Override
+    public String registryPort() {
+        return dotenv.get("SCHEMA_REGISTRY_PORT");
+    }
 }
